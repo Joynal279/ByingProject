@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ByingApplications.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Product List </h3>
+<table class="table table-bordered">
+    <tr>
+        <th>SI No.</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Color</th>
+        <th>Picture</th>
+        <th>Edit</th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Category.Name</td>
+            <td>@item.Color</td>
+            <td><img src="@Url.Content(Path.Combine(item.ImageFile))" alt="Image" height="30%" width="30%" /></td>
+            <th><a href="@Url.Action("Edit","Product",new { id = item.Id })" class="btn btn-primary">Edit</a></th>
+            
+        </tr>
+    }
+</table>
+
