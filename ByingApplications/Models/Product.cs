@@ -17,5 +17,7 @@ namespace ByingApplications.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
         public string ImageFile { get; set; }
+        public DateTime? AddedDate { get; set; }
+        public string AddedBy { get; set; }
     }
 }

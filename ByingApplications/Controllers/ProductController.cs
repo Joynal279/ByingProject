@@ -38,27 +38,42 @@ namespace ByingApplications.Controllers
         [HttpPost]
         public ActionResult SaveProduct(ProductViewModel productViewModel)
         {
-            string fileName = Path.GetFileNameWithoutExtension(productViewModel.ImageFile.FileName);
-            string extension = Path.GetExtension(productViewModel.ImageFile.FileName);
-            fileName = fileName + DateTime.Now.ToString() + extension;
-            productViewModel.ImagePath = "~/Images/" + fileName;
-            fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
-           // productViewModel.ImageFile.SaveAs(fileName);
-
-            var pro = new Product()
+            if (ModelState.IsValid)
             {
-                Name = productViewModel.Name,
-                Color = productViewModel.Color,
-                Description = productViewModel.Description,
-                Fabric = productViewModel.Fabric,
-                Quantity = productViewModel.Quantity,
-                UnitPrice = productViewModel.UnitPrice,
-                CategoryId=productViewModel.CategoryId,
-                ImageFile=productViewModel.ImagePath
-            };
-            _context.products.Add(pro);
-            _context.SaveChanges();
-            return View();
+                string fileName = Path.GetFileNameWithoutExtension(productViewModel.ImageFile.FileName);
+                string extension = Path.GetExtension(productViewModel.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString() + extension;
+                productViewModel.ImagePath = "~/Images/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                //productViewModel.ImageFile.SaveAs(fileName);
+                var addedDate = DateTime.Now;
+                var addedBy = User.Identity.Name;
+
+
+                var pro = new Product()
+                {
+                    Name = productViewModel.Name,
+                    Color = productViewModel.Color,
+                    Description = productViewModel.Description,
+                    Fabric = productViewModel.Fabric,
+                    Quantity = productViewModel.Quantity,
+                    UnitPrice = productViewModel.UnitPrice,
+                    AddedBy = addedBy,
+                    AddedDate = addedDate,
+                    CategoryId = productViewModel.CategoryId,
+                    ImageFile = productViewModel.ImagePath
+                };
+                _context.products.Add(pro);
+                _context.SaveChanges();
+                return View("Index");
+            }
+
+            else
+            {
+                ViewBag.message = "fil up the form";
+                return View("Create");
+            }
+            
 
         }
         public ActionResult Edit(int id)

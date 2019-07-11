@@ -1,8 +1,37 @@
-﻿
+﻿@model IEnumerable<ByingApplications.Models.Product>
 @{
     ViewBag.Title = "AdminDashBoard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Admin  DashBoard</h2>
+<h3>List of Products</h3>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <th>SI No</th>
+        <th>Product Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Fabric</th>
+        <th>Added By</th>
+        <th>Added Date</th>
+    </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Category.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.Fabric</td>
+                <td>@item.AddedBy</td>
+                <td>@item.AddedDate</td>
+            </tr>
+            }
+        </tbody>
+</table>
 

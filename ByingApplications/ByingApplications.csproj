@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201906260439257_addedCatagoriesProduct.Designer.cs">
       <DependentUpon>201906260439257_addedCatagoriesProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907111253109_InhancedProductTableProperty.cs" />
+    <Compile Include="Migrations\201907111253109_InhancedProductTableProperty.Designer.cs">
+      <DependentUpon>201907111253109_InhancedProductTableProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906260439257_addedCatagoriesProduct.resx">
       <DependentUpon>201906260439257_addedCatagoriesProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907111253109_InhancedProductTableProperty.resx">
+      <DependentUpon>201907111253109_InhancedProductTableProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,8 +9,8 @@
 }
 
 <h2>@ViewBag.Heading</h2>
-
-@using (Html.BeginForm(Model.Linker, "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@if(ViewBag.message==null){
+using (Html.BeginForm(Model.Linker, "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
@@ -61,12 +61,12 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.CategoryId, new { @class = "col-md-2 control-label" })
-       
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.categories, "Id", "Name"), "--selected category--", new { @class = "form-control" })
-            </div>
-       
-       
+
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.categories, "Id", "Name"), "--selected category--", new { @class = "form-control" })
+        </div>
+
+
     </div>
     @Html.HiddenFor(m => m.Id)
     if (Model.Id == 0)
@@ -85,4 +85,10 @@
         </div>
     </div>
 }
+}
+else{
+    <h2 class="text-danger">@ViewBag.message</h2>
+    <a class="btn btn-primary" href="@Url.Action("Create","Product")">Click here for fil up form</a>
+}
+
 

@@ -125,3 +125,4 @@ G:\JOHN DARK 3\Program\Project\ByingApplications\ByingApplications\obj\Debug\Byi
 G:\JOHN DARK 3\Program\Project\ByingApplications\ByingApplications\obj\Debug\ByingApplications.Migrations.addedProductTable.resources
 G:\JOHN DARK 3\Program\Project\ByingApplications\ByingApplications\obj\Debug\ByingApplications.Migrations.addedProductTable1.resources
 G:\JOHN DARK 3\Program\Project\ByingApplications\ByingApplications\obj\Debug\ByingApplications.Migrations.addedCatagoriesProduct.resources
+G:\JOHN DARK 3\Program\Project\ByingApplications\ByingApplications\obj\Debug\ByingApplications.Migrations.InhancedProductTableProperty.resources
